@@ -16,7 +16,6 @@ class MainContent(ScrollArea):
 
         # self.detailSings = DetailSings(self)
         # 连接导航栏的按钮。
-        self.parent.navigation.navigationListFunction = self.navigationListFunction
         with open("QSS/mainContent.qss", 'r', encoding='utf-8') as f:
             self.style = f.read()
             self.setStyleSheet(self.style)
@@ -34,12 +33,6 @@ class MainContent(ScrollArea):
         # self.mainLayout.addWidget(self.detailSings)
 
         self.frame.setLayout(self.mainLayout)
-
-    def navigationListFunction(self):
-        isVisible = self.tab.isVisible()
-        if self.parent.navigation.navigationList.currentRow() == 0:
-            # 发现音乐。
-            self.parent.mainContents.setCurrentIndex(0)
 
     def addTab(self, widget, name=''):
         self.tab.addTab(widget, name)

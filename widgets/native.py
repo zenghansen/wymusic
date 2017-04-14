@@ -87,12 +87,11 @@ class NativeMusic(ScrollArea):
             self.musicList = []
             for i in enumerate(mediaFiles):
                 temp = eyed3.load(i[1])
-                name = temp.tag.title
-                if not name:
+                if temp.tag:
+                    name = temp.tag.title
+                    author = temp.tag.artist
+                else:
                     name = i[1].split('\\')[-1][:-4]
-
-                author = temp.tag.artist
-                if not author:
                     author = '未知歌手'
 
                 time = itv2time(temp.info.time_secs)

@@ -19,8 +19,7 @@ class Navigation(QScrollArea):
         self.frame.setMaximumWidth(200)
         self.frame.setMinimumWidth(200)
 
-        # 定义3个事件函数，方便扩展。
-        self.navigationListFunction = self.none
+        # 定义2个事件函数，方便扩展。
         self.nativeListFunction = self.none
         self.singsFunction = self.none
 
@@ -140,6 +139,12 @@ class Navigation(QScrollArea):
         self.mainLayout.setSpacing(0)
         self.frame.setLayout(self.mainLayout)
 
+
+    def navigationListFunction(self):
+        #isVisible = self.tab.isVisible()
+        if self.navigationList.currentRow() == 0:
+            # 发现音乐。
+            self.parent.mainContents.setCurrentIndex(0)
     def none(self):
         # 没有用的空函数。
         pass

@@ -46,7 +46,7 @@ class Window(QWidget):
         self.playWidgets = PlayWidgets(self) #底部播放组件
         self.mainContent = MainContent(self) #主要内容区
         self.nativeMusic = NativeMusic(self) #本地音乐
-        #self.player = Player(self)
+        # self.player = Player(self)
 
         self.mainContents = QTabWidget()
         self.mainContents.tabBar().setObjectName("mainTab")
@@ -122,7 +122,7 @@ class Window(QWidget):
 
     def setLines(self):
         """设置布局小细线。"""
-        self.line1 = QFrame(self)
+        self.line1 = QFrame()
         self.line1.setObjectName("line1")
         self.line1.setFrameShape(QFrame.HLine)
         self.line1.setFrameShadow(QFrame.Plain)
@@ -135,12 +135,9 @@ class Window(QWidget):
         self.mainLayout.addWidget(self.line1)
 
         self.contentLayout = QHBoxLayout()
-        self.contentLayout.setStretch(0, 70)
-        self.contentLayout.setStretch(1, 570)
 
         self.contentLayout.addWidget(self.navigation)
         self.contentLayout.addWidget(self.mainContents)
-        # self.contentLayout.addStretch(1)
 
         self.contentLayout.setSpacing(0)
         self.contentLayout.setContentsMargins(0, 0, 0, 0)   
@@ -148,13 +145,6 @@ class Window(QWidget):
 
         self.mainLayout.addLayout(self.contentLayout)
         self.mainLayout.addWidget(self.playWidgets)
-        # self.mainLayout.addStretch(1)
-
-        
-        self.mainLayout.setStretch(0, 43)
-        self.mainLayout.setStretch(1, 0)
-        self.mainLayout.setStretch(2, 576)
-        self.mainLayout.setStretch(3, 50)
 
         self.mainLayout.setSpacing(0)
         self.mainLayout.setContentsMargins(0, 0, 0, 0)
